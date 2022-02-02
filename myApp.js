@@ -1,10 +1,9 @@
 var express = require('express');
 var app = express();
-var dirName = "clammy-silent-furniture"
-var absolutePath = dirName + "/views/index.html"
+var dirName = "/app";
 
 app.get("/", (req, res) => {
-  res.sendFile(absolutePath);
+  res.sendFile(dirName + "/views/index.html");
 });
 
 console.log("Hello World")
