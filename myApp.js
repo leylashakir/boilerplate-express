@@ -2,8 +2,12 @@ var express = require('express');
 var app = express();
 var dirName = "/app";
 
-app.route("/name").get("/name", (req, res) => {
-  res.json({name: })
+app.route("/name").get((req, res) => {
+  console.log(req.query)
+  //var firstname = req.query({first: firstname})
+  //var lastname = req.query({last: lastname})
+  //var name = firstname + " " + lastname
+  res.json({name: "name"})
 })
 
 app.get("/:word/echo", (req, res) => {
