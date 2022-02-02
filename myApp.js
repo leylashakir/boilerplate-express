@@ -10,9 +10,9 @@ app.use(function middleware(req, res, next) {
 app.get("/now", function middleware(req, res, next) {
   req.time = new Date().toString();
   next();
-}, middleware(req, res) {
-        res.json({time: req.time})
-})
+}, function returnTime(req, res) {
+  res.json({time: req.time})
+});
 
 var response = "Hello json";
 if (process.env.MESSAGE_STYLE === "uppercase") {
