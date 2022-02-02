@@ -3,13 +3,14 @@ var app = express();
 var dirName = "/app";
 
 app.get("/json", (req, res) => {
-  var response = res.json({
+  if (process.env.MESSAGE_STYLE === "uppercase") {
+    res.json({
+    message: "Hello Json".toUpperCase()
+  });
+  } else {
+    res.json({
     message: "Hello Json"
   });
-  if (/app/.env.MESSAGE_STYLE == "uppercase") {
-    response.toUpperCase()
-  } else {
-    response;
   }
   
 });
