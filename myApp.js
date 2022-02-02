@@ -3,16 +3,15 @@ var bodyParser = require('body-parser');
 var app = express();
 var dirName = "/app";
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.route("/name").get((req, res) => {
   console.log(req.query)
   var firstname = req.query.first
   var lastname = req.query.last
   var name = firstname + " " + lastname
   res.json({name: name})
-}).post(function parser(req, res, next) {
-        
-        })
-
+})
 /* app.get("/:word/echo", (req, res) => {
   var word = req.params.word
   res.json({echo: word})
