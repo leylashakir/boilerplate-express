@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var dirName = "/app";
 
@@ -8,7 +9,9 @@ app.route("/name").get((req, res) => {
   var lastname = req.query.last
   var name = firstname + " " + lastname
   res.json({name: name})
-})
+}).post(function parser(req, res, next) {
+        
+        })
 
 /* app.get("/:word/echo", (req, res) => {
   var word = req.params.word
