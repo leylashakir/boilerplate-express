@@ -2,10 +2,14 @@ var express = require('express');
 var app = express();
 var dirName = "/app";
 
-app.use(function middleware(req, res, next) {
+/* app.use(function middleware(req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip);
   next();
-});
+}); */
+
+app.get("/:word/echo", (req, res) => {
+  res.json({echo: "word"})
+})
 
 app.get("/now", function middleware(req, res, next) {
   req.time = new Date().toString();
