@@ -8,7 +8,8 @@ var dirName = "/app";
 }); */
 
 app.get("/:word/echo", (req, res) => {
-  res.json({echo: "word"})
+  var word = req.params.word
+  res.json({echo: word})
 })
 
 app.get("/now", function middleware(req, res, next) {
