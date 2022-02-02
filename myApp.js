@@ -2,11 +2,18 @@ var express = require('express');
 var app = express();
 var dirName = "/app";
 
-app.get("/", (req, res) => {
-  res.sendFile(dirName.join("/views/index.html"));
+app.get("/json", (req, res) => {
+  res.json({"message": "Hello Json"})
+  res.send("/app/json");
 });
 
-app.use(express.static(dirName.join("/views")))
+/* app.get("/", (req, res) => {
+  res.sendFile(dirName + "/views/index.html");
+}); */
+
+app.use("/public", express.static("/app/public"))
+
+
 
 console.log("Hello World")
 app.get("Hello Express")
