@@ -2,15 +2,21 @@ var express = require('express');
 var app = express();
 var dirName = "/app";
 
-/* app.use(function middleware(req, res, next) {
-  console.log(req.method + " " + req.path + " - " + req.ip);
-  next();
-}); */
+app.get("/name", (req, res) => {
+  var firstname = req.query(firstname: firstname)
+  var lastname
+  res.json({echo: word})
+})
 
 app.get("/:word/echo", (req, res) => {
   var word = req.params.word
   res.json({echo: word})
 })
+
+app.use(function middleware(req, res, next) {
+  console.log(req.method + " " + req.path + " - " + req.ip);
+  next();
+});
 
 app.get("/now", function middleware(req, res, next) {
   req.time = new Date().toString();
@@ -30,9 +36,9 @@ app.get("/json", (req, res) => {
   res.json({message: response});
 });
 
-/* app.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(dirName + "/views/index.html");
-}); */
+});
 
 app.use("/public", express.static("/app/public"))
 
