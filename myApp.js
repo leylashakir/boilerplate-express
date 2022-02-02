@@ -4,23 +4,23 @@ var dirName = "/app";
 
 app.route("/name").get((req, res) => {
   console.log(req.query)
-  //var firstname = req.query({first: firstname})
-  //var lastname = req.query({last: lastname})
-  //var name = firstname + " " + lastname
-  res.json({name: "name"})
+  var firstname = req.query.first
+  var lastname = req.query.last
+  var name = firstname + " " + lastname
+  res.json({name: name})
 })
 
-app.get("/:word/echo", (req, res) => {
+/* app.get("/:word/echo", (req, res) => {
   var word = req.params.word
   res.json({echo: word})
 })
-
-app.use(function middleware(req, res, next) {
+*/
+/* app.use(function middleware(req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip);
   next();
 });
-
-app.get("/now", function middleware(req, res, next) {
+*/
+/* app.get("/now", function middleware(req, res, next) {
   req.time = new Date().toString();
   next();
 }, function returnTime(req, res) {
@@ -33,15 +33,17 @@ if (process.env.MESSAGE_STYLE === "uppercase") {
   } else {
     response;
   }
+  
+  */
 
-app.get("/json", (req, res) => {
+/*app.get("/json", (req, res) => {
   res.json({message: response});
 });
 
 app.get("/", (req, res) => {
   res.sendFile(dirName + "/views/index.html");
 });
-
+*/
 app.use("/public", express.static("/app/public"))
 
 
