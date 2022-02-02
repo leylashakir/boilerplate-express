@@ -8,6 +8,7 @@ if (process.env.MESSAGE_STYLE === "uppercase") {
   } else {
     messageString;
   }
+console.log(messageString)
 
 app.get("/json", (req, res) => {
   res.json({message: messageString});
